@@ -1,0 +1,33 @@
+<div class='container mt-2 border'>
+  <div class='row'>
+    <div class='col-12'>
+      <div class='form-container p-4'>
+        <h5>Ürün Oluştur</h5>
+        <hr>
+        <form [formGroup]='form'>
+          <div class='form-group'>
+            <label for='itemId'>Ürün Idsi</label>
+            <input id='itemId' placeholder='Ürün Idsi' type='text' class='form-control' formControlName='itemId'>
+          </div>
+          <div class='form-group'>
+            <label for='itemName'>Ürün Adı</label>
+            <input id='itemName' placeholder='Ürün Adı' type='text' class='form-control' formControlName='itemName'>
+          </div>
+          <div class='form-group'>
+            <label for='itemAmount'>Ürün Adedi</label>
+            <input id='itemAmount' placeholder='Ürün Adedi' type='text' class='form-control'
+                   formControlName='itemAmount'>
+          </div>
+          <div class='form-group'>
+            <label for='itemPrice'>Ürün Fiyatı</label>
+            <input id='itemPrice' placeholder='Ürün Fiyatı' type='text' class='form-control'
+                   formControlName='itemPrice'>
+          </div>
+          <div class='form-group'>
+            <button class='btn btn-primary btn-block'>Gönder</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
