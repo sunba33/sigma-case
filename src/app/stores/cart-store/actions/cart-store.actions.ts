@@ -1,5 +1,6 @@
-import { Action } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 import { CartItemModel } from '../models/cartItem.model';
+import { ProductModel } from '../../products/models/product.model';
 
 export enum CartActionTypes {
   Add = '[Cart] Add',
@@ -7,13 +8,5 @@ export enum CartActionTypes {
   Clear = '[Cart] Clear'
 }
 
-export class CartAdd implements Action {
-  type = CartActionTypes.Add;
+export const CartAdd = createAction(CartActionTypes.Add, props<{ cartItem: ProductModel }>());
 
-  constructor(public payload: CartItemModel) {
-
-  }
-}
-
-
-export type CartStoreActions = CartAdd;

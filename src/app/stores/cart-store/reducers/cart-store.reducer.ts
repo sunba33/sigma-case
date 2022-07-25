@@ -1,23 +1,13 @@
-import { CartActionTypes, CartStoreActions } from '../actions/cart-store.actions';
+import { createReducer, on } from '@ngrx/store';
+import { CartAdd } from '../actions/cart-store.actions';
 
 
 const initialState = {
   cart: [],
 };
 
-export function cartStoreReducer(state = initialState, action: CartStoreActions): any {
-  let _state = null;
-  switch (action.type) {
-    case CartActionTypes.Add:
-      return {
-        ..._state,
-        cart: [...state.cart, action.payload]
-      };
-  }
-}
-
-export const getCartStoreLastState = (state: any) => {
-  if (state) {
-    return state.cart;
-  }
-};
+export const cartReducer = createReducer(initialState,
+  on(CartAdd,
+    (state, action) => {
+      return ({ ...state, cart: [...state.cart, action.cartItem] });
+    }));
