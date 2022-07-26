@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { CartItemModel } from '../../stores/cart-store/models/cartItem.model';
 import { takeUntil } from 'rxjs/operators';
 import { DecreaseItem, IncreaseItem, RemoveOneItem } from '../../stores/cart-store/actions/cart-store.actions';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-cart',
@@ -12,10 +13,10 @@ import { DecreaseItem, IncreaseItem, RemoveOneItem } from '../../stores/cart-sto
 })
 export class CartComponent implements OnInit, OnDestroy {
 
-  cartItems: CartItemModel[];
+  cartItems: CartItemModel[] = [];
   destroyed$: Subject<any> = new Subject();
 
-  constructor(private store: Store) {
+  constructor(private store: Store, private activeModel: NgbActiveModal) {
   }
 
   ngOnInit(): void {
@@ -52,5 +53,9 @@ export class CartComponent implements OnInit, OnDestroy {
 
   onDeleteItem(item: any): void {
     this.store.dispatch(RemoveOneItem({ id: item.id }));
+  }
+
+  onClickClose(): void {
+    this.activeModel.close();
   }
 }

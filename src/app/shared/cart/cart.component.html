@@ -1,6 +1,27 @@
-<ng-container *ngFor='let cartItem of cartItems'>
-  <app-cart-item [cartItem]='cartItem' (increaseItem)='onIncreaseItem($event)'
-                 (decreaseItem)='onDecreaseItem($event)'
-                 (deleteItem)='onDeleteItem($event)'
-  ></app-cart-item>
-</ng-container>
+<div class='container p-4'>
+  <div class='row'>
+    <div class='col-12' *ngIf='cartItems.length > 0; else noItem'>
+      <ng-container *ngFor='let cartItem of cartItems'>
+        <app-cart-item [cartItem]='cartItem' (increaseItem)='onIncreaseItem($event)'
+                       (decreaseItem)='onDecreaseItem($event)'
+                       (deleteItem)='onDeleteItem($event)'
+        ></app-cart-item>
+      </ng-container>
+    </div>
+    <ng-template #noItem>
+      <div class='col-12'>
+        <div class='alert alert-primary'>
+          <strong>Sepetinizde ürün yok</strong>
+        </div>
+      </div>
+
+    </ng-template>
+  </div>
+  <div class='row mt-2'>
+    <div class='col-12'>
+      <div class='d-flex justify-content-center align-items-center'>
+        <button class='btn btn-block btn-danger' (click)='onClickClose()'>KAPAT</button>
+      </div>
+    </div>
+  </div>
+</div>
