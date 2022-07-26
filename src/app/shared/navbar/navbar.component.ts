@@ -4,6 +4,8 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CartItemModel } from '../../stores/cart-store/models/cartItem.model';
 import { ToastrService } from 'ngx-toastr';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-navbar',
@@ -18,6 +20,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   constructor(private store: Store,
               private toastr: ToastrService,
+              private dialogService: NgbModal,
               private cdr: ChangeDetectorRef) {
   }
 
@@ -41,6 +44,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   get CartItemCount(): number {
     return this.cartItems.length;
+  }
+
+  onClickCart(): void {
+    const component = this.dialogService.open(CartComponent, { centered: true });
   }
 
   ngOnDestroy(): void {

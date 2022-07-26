@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { ProductModel } from '../../../stores/products/models/product.model';
 import { CartAdd } from '../../../stores/cart-store/actions/cart-store.actions';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user',
@@ -12,7 +12,7 @@ import { CartAdd } from '../../../stores/cart-store/actions/cart-store.actions';
 })
 export class UserComponent implements OnInit, OnDestroy {
 
-  products: ProductModel[];
+  products: ProductModel[] = [];
   destroy$: Subject<any> = new Subject<any>();
 
   constructor(private store: Store) {
@@ -24,7 +24,7 @@ export class UserComponent implements OnInit, OnDestroy {
 
   initListeners(): void {
     this.store
-      .select('products')
+      .select((state: any) => state.products)
       .pipe(takeUntil(this.destroy$))
       .subscribe((products: { products: ProductModel[] }) => {
         this.products = products.products;

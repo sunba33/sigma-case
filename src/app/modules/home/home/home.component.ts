@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { CartAdd } from '../../../stores/cart-store/actions/cart-store.actions';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,14 +13,14 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(new CartAdd({ id: 1, amount: 1, name: '', price: 1 }));
+
   }
 
   onClickUserPage(): void {
     this.router.navigate(['/user']);
   }
 
-  onClickAdminPage() {
+  onClickAdminPage(): void {
     this.router.navigate(['/admin']);
   }
 }

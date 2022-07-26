@@ -1,0 +1,11 @@
+<div class='d-flex justify-content-between align-items-center p-4 border-bottom'>
+  <div>
+    <p>{{cartItem.name}}</p>
+  </div>
+  <div class='d-flex justify-content-center align-items-center'>
+    <button class='btn btn-warning btn-sm' (click)='onClickDeleteItem()'>-</button>
+    <button class='btn btn-danger btn-sm' (click)='onClickDecreaseItem()'>-</button>
+    <p class='mr-2 ml-2'>{{cartItem.amount}}</p>
+    <button class='btn btn-primary btn-sm' (click)='onClickIncreaseItem()'>+</button>
+  </div>
+</div>

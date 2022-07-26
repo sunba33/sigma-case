@@ -1,1 +1,6 @@
-<p>cart works!</p>
+<ng-container *ngFor='let cartItem of cartItems'>
+  <app-cart-item [cartItem]='cartItem' (increaseItem)='onIncreaseItem($event)'
+                 (decreaseItem)='onDecreaseItem($event)'
+                 (deleteItem)='onDeleteItem($event)'
+  ></app-cart-item>
+</ng-container>
