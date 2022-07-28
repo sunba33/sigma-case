@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
+import { provideMockStore } from '@ngrx/store/testing';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -8,9 +9,12 @@ describe('NavbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ]
+      declarations: [NavbarComponent],
+      providers: [
+        provideMockStore({ initialState: {} }),
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +25,8 @@ describe('NavbarComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('needs with heading sigma case', () => {
+    document.getElementsByTagName('h5')[0].innerHTML = 'Sigma Test Case';
   });
 });

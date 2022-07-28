@@ -7,6 +7,8 @@ import {
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
 
+// Karma ile test deneyimim fazla olmadığı için bu şekilde tamamladım.
+
 declare const require: {
   context(path: string, deep?: boolean, filter?: RegExp): {
     keys(): string[];

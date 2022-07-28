@@ -55,7 +55,6 @@ export class AdminComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroyed$))
       .subscribe((res) => {
         this.products = res.products;
-        console.log(this.products);
       });
 
     this.router.params

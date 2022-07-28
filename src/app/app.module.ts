@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './shared/shared.module';
-import { ToastrModule } from 'ngx-toastr';
 import { productsReducer } from './stores/products/reducers/products.reducer';
 import { cartReducer } from './stores/cart-store/reducers/cart-store.reducer';
 
@@ -17,7 +16,6 @@ import { cartReducer } from './stores/cart-store/reducers/cart-store.reducer';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ToastrModule.forRoot(),
     StoreModule.forRoot({ cart: cartReducer, products: productsReducer }),
     NgbModule,
     SharedModule

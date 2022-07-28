@@ -3,7 +3,6 @@ import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CartItemModel } from '../../stores/cart-store/models/cartItem.model';
-import { ToastrService } from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartComponent } from '../cart/cart.component';
 
@@ -19,7 +18,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private destroyed$: Subject<any> = new Subject();
 
   constructor(private store: Store,
-              private toastr: ToastrService,
               private dialogService: NgbModal,
               private cdr: ChangeDetectorRef) {
   }
@@ -38,7 +36,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
           this.cdr.detectChanges();
         }
       }, (error: any) => {
-        this.toastr.error('Beklenmeyen bir hata oluştu lütfen daha sonra tekrar deneyiniz', 'Hata');
+
       });
   }
 
