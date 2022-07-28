@@ -4,6 +4,8 @@ import { Subject } from 'rxjs';
 import { ProductModel } from '../../../stores/products/models/product.model';
 import { CartAdd } from '../../../stores/cart-store/actions/cart-store.actions';
 import { takeUntil } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-user',
@@ -15,7 +17,7 @@ export class UserComponent implements OnInit, OnDestroy {
   products: ProductModel[] = [];
   destroy$: Subject<any> = new Subject<any>();
 
-  constructor(private store: Store) {
+  constructor(private store: Store, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -38,5 +40,9 @@ export class UserComponent implements OnInit, OnDestroy {
 
   onAddToCart(product: ProductModel): void {
     this.store.dispatch(CartAdd({ cartItem: product }));
+  }
+
+  onEditProduct(product: ProductModel): void {
+    this.router.navigate(['/admin/addProduct', product.id]);
   }
 }

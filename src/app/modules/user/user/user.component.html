@@ -2,7 +2,7 @@
   <div class='row mt-2'>
     <ng-container *ngIf='products.length; else noProduct'>
       <div class='col-4 mb-2 mt-2' *ngFor='let product of products'>
-        <app-product-card [product]='product' (addToCart)='onAddToCart(product)'></app-product-card>
+        <app-product-card [product]='product' (addToCart)='onAddToCart(product)' (editProduct)='onEditProduct(product)'></app-product-card>
       </div>
     </ng-container>
     <ng-template #noProduct>

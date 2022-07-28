@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
-  { path: '', component: AdminComponent }
+  { path: '', redirectTo: 'addProduct', pathMatch: 'full' },
+  { path: 'addProduct', component: AdminComponent },
+  { path: 'addProduct/:id', component: AdminComponent }
 ];
 
 @NgModule({

@@ -5,6 +5,11 @@
         <p class='m-0'>{{errorMessage}}</p>
       </div>
     </div>
+    <div class='col-12 mt-2' *ngIf='success'>
+      <div class='alert alert-success'>
+        <p class='m-0'>{{successMessage}}</p>
+      </div>
+    </div>
     <div class='col-12 border'>
       <div class='form-container p-4'>
         <h5>Ürün Oluştur</h5>

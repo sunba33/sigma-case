@@ -4,17 +4,19 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CartComponent } from './cart/cart.component';
 import { RouterModule } from '@angular/router';
 import { CartItemComponent } from './cart-item/cart-item.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-    declarations: [NavbarComponent, CartComponent, CartItemComponent],
-    exports: [
-        NavbarComponent
-    ],
-    imports: [
-        CommonModule,
-        RouterModule
-    ]
+  declarations: [NavbarComponent, CartComponent, CartItemComponent],
+  exports: [
+    NavbarComponent
+  ],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule
+  ]
 })
-export class SharedModule { }
+export class SharedModule {
+}

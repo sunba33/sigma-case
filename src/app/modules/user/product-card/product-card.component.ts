@@ -10,6 +10,7 @@ export class ProductCardComponent implements OnInit {
 
   @Input() product: ProductModel;
   @Output() addToCart: EventEmitter<ProductModel> = new EventEmitter<ProductModel>();
+  @Output() editProduct: EventEmitter<ProductModel> = new EventEmitter<ProductModel>();
 
   constructor() {
   }
@@ -19,5 +20,9 @@ export class ProductCardComponent implements OnInit {
 
   onClickAddProductToCard(): void {
     this.addToCart.emit(this.product);
+  }
+
+  onClickEditProduct(): void {
+    this.editProduct.emit(this.product);
   }
 }
