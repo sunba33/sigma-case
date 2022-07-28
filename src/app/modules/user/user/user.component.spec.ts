@@ -33,4 +33,10 @@ describe('UserComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should be give primary alert when no products in it', () => {
+    const alert = document.querySelector('.alert-primary');
+
+    expect(alert).toBeTruthy();
+  });
 });
