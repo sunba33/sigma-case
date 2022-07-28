@@ -15,12 +15,12 @@ describe('HomeComponent', () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule,
         StoreModule.forRoot({ cart: cartReducer, products: productsReducer }),],
-      declarations: [ HomeComponent ],
+      declarations: [HomeComponent],
       providers: [
         provideMockStore({ initialState: { products: [], cart: [] } }),
       ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -31,5 +31,10 @@ describe('HomeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should has two buttons', () => {
+    const buttons = document.getElementsByTagName('button');
+    expect(buttons.length).toBe(2);
   });
 });
